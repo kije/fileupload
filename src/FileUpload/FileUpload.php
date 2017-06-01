@@ -359,9 +359,11 @@ class FileUpload
                     }
                 }
 
-                $file = new $file($file_path);
+                $_file = new $file($file_path);
                 $file->completed = $completed;
                 $file->size = $file_size;
+                $file->name = $file->name;
+                $file = $_file;
 
                 if ($completed) {
                     $this->processCallbacksFor('completed', $file);
